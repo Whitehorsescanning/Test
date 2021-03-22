@@ -1,0 +1,6 @@
+server:
+  prot: 8400
+spring:
+  profiles:
+    active: default
+        
