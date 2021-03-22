@@ -8,7 +8,7 @@ public class HelloUnsafe {
     static class M {
         private M() {}
 
-        int i =0;
+        int i =1;
     }
 
    public static void main(String[] args) throws InstantiationException {
