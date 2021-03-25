@@ -61,22 +61,25 @@ public class T03_NotifyHoldingLock { //wait notify
 
 		new Thread(() -> {
 			System.out.println("t1Æô¶¯");
-			synchronized(lock) {
-				for(int i=0; i<10; i++) {
+
+			for(int i=0; i<10; i++) {
+				synchronized(lock) {
 					c.add(new Object());
 					System.out.println("add " + i);
 					
 					if(c.size() == 5) {
 						lock.notify();
 					}
-					
-					try {
-						TimeUnit.SECONDS.sleep(1);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
+
+				}
+				try {
+					TimeUnit.MILLISECONDS.sleep(10);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
 				}
 			}
+
+
 		}, "t1").start();
 		
 		

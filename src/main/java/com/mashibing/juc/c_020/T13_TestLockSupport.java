@@ -11,6 +11,11 @@ public class T13_TestLockSupport {
                 if(i == 5) {
 //                  暂停当前线程
                     LockSupport.park();
+                    try {
+                        TimeUnit.SECONDS.sleep(6);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
                 try {
                     TimeUnit.MILLISECONDS.sleep(100);
@@ -21,13 +26,19 @@ public class T13_TestLockSupport {
         });
 
         t.start();
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         LockSupport.unpark(t);
+        System.out.println("unpark");
 
 
 //        LockSupport.unpark(t);
 /*
         try {
-//            t.join();
+            t.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

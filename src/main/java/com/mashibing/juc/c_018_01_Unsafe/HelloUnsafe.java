@@ -15,7 +15,7 @@ public class HelloUnsafe {
         Unsafe unsafe = Unsafe.getUnsafe();
         M m = (M)unsafe.allocateInstance(M.class);
         m.i = 9;
-        System.out.println(m.i);
+        System.out.println(m.i+"你好呀");
     }
 }
 

@@ -27,17 +27,17 @@ public class T06_01_CompletableFuture {
 
         start = System.currentTimeMillis();
 //CompletableFuture 管理多个线程的返回值结果 产生各种各样的异步任务
-        CompletableFuture<Double> futureTM = CompletableFuture.supplyAsync(()->priceOfTM());
+//        CompletableFuture<Double> futureTM = CompletableFuture.supplyAsync(()->priceOfTM());
         CompletableFuture<Double> futureTB = CompletableFuture.supplyAsync(()->priceOfTB());
-        CompletableFuture<Double> futureJD = CompletableFuture.supplyAsync(()->priceOfJD());
+        System.out.println(futureTB.thenApply(String::valueOf).thenAccept(System.out::println));
+//        CompletableFuture<Double> futureJD = CompletableFuture.supplyAsync(()->priceOfJD());
 
-        Void join = CompletableFuture.allOf(futureTM, futureTB, futureJD).get();
+//        Void join = CompletableFuture.allOf(futureTM, futureTB, futureJD).get();
 
-/*         Double join = CompletableFuture.supplyAsync(() -> priceOfTM())
+         CompletableFuture.supplyAsync(() -> priceOfTM())
                .thenApply(String::valueOf)
                 .thenApply(str-> "price " + str)
                 .thenAccept(System.out::println);
-*/
         end = System.currentTimeMillis();
         System.out.println("use completable future! " + (end - start));
 

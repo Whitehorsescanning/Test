@@ -14,7 +14,7 @@ import java.util.Arrays;
 public class Singleton {
 	static ThreadLocal threadLocal = new ThreadLocal();
 	static {
-		threadLocal.set(1);
+		threadLocal.set(getSingle());
 	}
 	private Singleton() {
 		System.out.println("single");

@@ -32,8 +32,8 @@ public class T06_TestCountDownLatch {
 
         try {
             latch.await();  //countdownLatch == 0 时拉开门栓
-            CountDownLatch latch1 = new CountDownLatch(2);
-            latch1.await();  //countdownLatch == 0 时拉开门栓
+//            CountDownLatch latch1 = new CountDownLatch(2);
+//            latch1.await();  //countdownLatch == 0 时拉开门栓
 
         } catch (InterruptedException e) {
             e.printStackTrace();

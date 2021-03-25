@@ -27,7 +27,7 @@ public class T09_TransferQueue {
 
 		for (int i = 0; i < 10; i++) {
 			System.out.println(i);
-			strs.transfer("aaa"+i);
+			strs.transfer("aaa"+i);  // 添加后阻塞直到take（）后停止阻塞
 			strs.transfer("aaa"+i);
 
 

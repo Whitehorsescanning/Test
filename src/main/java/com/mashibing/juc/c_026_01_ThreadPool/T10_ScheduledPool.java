@@ -15,7 +15,7 @@ public class T10_ScheduledPool {
 				e.printStackTrace();
 			}
 			System.out.println(Thread.currentThread().getName());
-		}, 0, 500, TimeUnit.MILLISECONDS);
+		}, 0, 5000, TimeUnit.MILLISECONDS);
 		
 	}
 }

@@ -8,7 +8,7 @@ import java.util.concurrent.Delayed;
 import java.util.concurrent.TimeUnit;
 
 public class T07_DelayQueue {
-
+	// 阻塞队列 底层根据堆排序 根据等待时间排序  按时间进行任务调度
 	static BlockingQueue<MyTask> tasks = new DelayQueue<>();
 
 	static Random r = new Random();

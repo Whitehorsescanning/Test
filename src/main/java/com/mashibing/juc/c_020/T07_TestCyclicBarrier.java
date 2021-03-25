@@ -19,7 +19,7 @@ public class T07_TestCyclicBarrier {
 
         for(int i=0; i<100; i++) {
                 if (i % 20 == 0) {
-                    TimeUnit.SECONDS.sleep(1);
+                    TimeUnit.SECONDS.sleep(5);
                 }
                 new Thread(()->{
                     try {

@@ -6,7 +6,7 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 
 public class T06_ArrayBlockingQueue {
-
+	// 相当于生产者消费者  ReentrantLock
 	static BlockingQueue<String> strs = new ArrayBlockingQueue<>(10);
 
 	static Random r = new Random();

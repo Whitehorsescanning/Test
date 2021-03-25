@@ -31,12 +31,12 @@ public class T05_00_HelloThreadPool {
     }
 
     public static void main(String[] args) {
-        ThreadPoolExecutor tpe = new ThreadPoolExecutor(2, 4,
+        ThreadPoolExecutor tpe = new ThreadPoolExecutor(0, 4,
                 60, TimeUnit.SECONDS,
                 new ArrayBlockingQueue<Runnable>(4),
                 Executors.defaultThreadFactory(),
-                new ThreadPoolExecutor.CallerRunsPolicy());
-        //处理策略 Abort ：抛异常； Discard ： 扔掉，不抛异常
+                new ThreadPoolExecutor.DiscardOldestPolicy());
+        //处理策略 Abort ：抛异常； Discard ： 扔掉提交的任务，不抛异常
         //        DiscardOldest : 扔掉排队时间最久的； CallerRuns：调用者处理任务
 
         for (int i = 0; i < 8; i++) {

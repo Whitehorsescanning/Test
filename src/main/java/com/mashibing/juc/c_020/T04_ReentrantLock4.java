@@ -34,22 +34,23 @@ public class T04_ReentrantLock4 {
 				TimeUnit.SECONDS.sleep(Integer.MAX_VALUE);
 				System.out.println("t1 end");
 			} catch (InterruptedException e) {
-				System.out.println("interrupted!");
+				System.out.println("interrupted!+你是人");
 			} finally {
 				lock.unlock();
 			}
 		});
-		t1.start();
+//		t1.start();
 		
 		Thread t2 = new Thread(()->{
 			try {
 //				lock.lock();
 				lock.lockInterruptibly(); //可以对interrupt()方法做出响应
 				System.out.println("t2 start");
+
 				TimeUnit.SECONDS.sleep(5);
 				System.out.println("t2 end");
 			} catch (InterruptedException e) {
-				System.out.println("interrupted!2");
+				System.out.println("interrupted!2你好呀");
 			} finally {
 				lock.unlock();
 			}

@@ -21,6 +21,7 @@ public class T02_CopyOnWriteList {
 		List<String> lists = 
 				//new ArrayList<>(); //这个会出并发问题！
 				//new Vector();
+				// 写时加锁复制 读时不加 适合于少量写大量读
 				new CopyOnWriteArrayList<>();
 		Random r = new Random();
 		Thread[] ths = new Thread[100];

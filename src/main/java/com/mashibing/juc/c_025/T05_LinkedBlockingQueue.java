@@ -6,7 +6,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
 public class T05_LinkedBlockingQueue {
-
+	// 无界队列一直添加可以添加到内存溢出
 	static BlockingQueue<String> strs = new LinkedBlockingQueue<>();
 
 	static Random r = new Random();

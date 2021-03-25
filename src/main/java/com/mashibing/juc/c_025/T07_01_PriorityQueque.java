@@ -4,6 +4,7 @@ import java.util.PriorityQueue;
 
 public class  T07_01_PriorityQueque {
     public static void main(String[] args) {
+        // 类似于树  阻塞自排序
         PriorityQueue<String> q = new PriorityQueue<>();
 
         q.add("c");

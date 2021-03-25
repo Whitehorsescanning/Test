@@ -8,6 +8,9 @@ public class T14_MyRejectedHandler {
                 0, TimeUnit.SECONDS, new ArrayBlockingQueue<>(6),
                 Executors.defaultThreadFactory(),
                 new MyHandler());
+        service.execute(() -> {
+            System.out.println();
+        });
     }
 
     static class MyHandler implements RejectedExecutionHandler {

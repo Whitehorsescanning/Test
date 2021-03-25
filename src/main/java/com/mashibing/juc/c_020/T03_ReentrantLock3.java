@@ -20,10 +20,9 @@ public class T03_ReentrantLock3 {
 	Lock lock = new ReentrantLock();
 
 	void m1() {
-
+		lock.lock();
 		try {
-			lock.lock();
-			for (int i = 0; i < 5; i++) {
+			for (int i = 0; i < 3; i++) {
 				TimeUnit.SECONDS.sleep(1);
 
 				System.out.println(i);
@@ -50,7 +49,7 @@ public class T03_ReentrantLock3 {
 		boolean locked = false;
 		
 		try {
-			locked = lock.tryLock(2, TimeUnit.SECONDS);
+			locked = lock.tryLock(5, TimeUnit.SECONDS);
 //			lock.lock();
 			System.out.println("m2 ..." + locked);
 

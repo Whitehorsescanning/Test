@@ -15,7 +15,8 @@ import java.util.concurrent.TimeUnit;
 public class ThreadLocal2 {
 	//volatile static Person p = new Person();
 	static ThreadLocal<Person> tl = new ThreadLocal<>();
-	
+	static ThreadLocal<String> t2 = new ThreadLocal<>();
+
 	public static void main(String[] args) {
 				
 		new Thread(()->{
@@ -26,6 +27,7 @@ public class ThreadLocal2 {
 			}
 			
 			System.out.println(tl.get());
+			t2.set("djfk");
 		}).start();
 		
 		new Thread(()->{
@@ -36,10 +38,13 @@ public class ThreadLocal2 {
 			}
 			tl.set(new Person());
 		}).start();
+
+		tl.remove();
 	}
 	
 	static class Person {
 		String name = "zhangsan";
+
 	}
 }
 

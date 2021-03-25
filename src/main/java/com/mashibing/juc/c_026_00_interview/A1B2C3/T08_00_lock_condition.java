@@ -18,7 +18,6 @@ public class T08_00_lock_condition {
         new Thread(()->{
             try {
                 lock.lock();
-
                 for(char c : aI) {
                     System.out.print(c);
                     condition.signal();

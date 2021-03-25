@@ -20,8 +20,7 @@ import java.util.concurrent.locks.ReentrantLock;
 public class MyContainer2<T> {
 	final private LinkedList<T> lists = new LinkedList<>();
 	final private int MAX = 10; //最多10个元素
-	private int count = 0;
-	
+
 	private Lock lock = new ReentrantLock();
 //	Condition本质不同的等待队列
 	private Condition producer = lock.newCondition();
@@ -30,12 +29,12 @@ public class MyContainer2<T> {
 	public void put(T t) {
 		try {
 			lock.lock();
+			ClassLoader classLoader = ClassLoader.getSystemClassLoader();
 			while(lists.size() == MAX) { //想想为什么用while而不是用if？
 				producer.await();
 			}
 			
 			lists.add(t);
-			++count;
 			consumer.signalAll(); //通知消费者线程进行消费
 		} catch (InterruptedException e) {
 			e.printStackTrace();
@@ -52,7 +51,6 @@ public class MyContainer2<T> {
 				consumer.await();
 			}
 			t = lists.removeFirst();
-			count --;
 			producer.signalAll(); //通知生产者进行生产
 		} catch (InterruptedException e) {
 			e.printStackTrace();

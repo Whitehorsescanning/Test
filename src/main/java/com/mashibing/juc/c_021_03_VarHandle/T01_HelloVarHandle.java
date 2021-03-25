@@ -27,7 +27,7 @@ public class T01_HelloVarHandle {
         handle.set(t,9);
         System.out.println(t.x);
 
-        handle.compareAndSet(t, 9, 10);
+        handle.compareAndSet(t, 9, 11);
         System.out.println(t.x);
 
         handle.getAndAdd(t, 10);

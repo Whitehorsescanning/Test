@@ -1,5 +1,6 @@
 package com.mashibing.juc.c_021_02_AQS;
 
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class TestReentrantLock {
@@ -9,6 +10,8 @@ public class TestReentrantLock {
     public static void main(String[] args) {
         ReentrantLock lock = new ReentrantLock();
         lock.lock();
+        AtomicInteger a = new AtomicInteger(1);
+        a.getAndIncrement();
         //synchronized (TestReentrantLock.class) {
             i++;
         //}

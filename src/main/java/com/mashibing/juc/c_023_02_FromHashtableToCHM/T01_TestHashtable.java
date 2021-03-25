@@ -2,7 +2,7 @@ package com.mashibing.juc.c_023_02_FromHashtableToCHM;
 
 import java.util.Hashtable;
 import java.util.UUID;
-
+// 自带锁 synchronized
 public class T01_TestHashtable {
 
     static Hashtable<UUID, UUID> m = new Hashtable<>();

@@ -26,5 +26,6 @@ public class T06_00_Future {
 		});
 		System.out.println(f.get());
 		System.out.println(f.isDone());
+		Thread thread = new Thread(null, task, "fgds", 0, false);
 	}
 }

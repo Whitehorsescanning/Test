@@ -45,6 +45,7 @@ public class T06_LockSupport {
 	public int size() {
 		return lists.size();
 	}
+	static Thread t1 = null;
 
 	public static void main(String[] args) {
 		T06_LockSupport c = new T06_LockSupport();
@@ -53,11 +54,10 @@ public class T06_LockSupport {
 
 		Thread t2 = new Thread(() -> {
 			System.out.println("t2Æô¶¯");
-			if (c.size() != 5) {
 
 				LockSupport.park();
 
-			}
+			LockSupport.unpark(t1);
 			System.out.println("t2 ½áÊø");
 
 
@@ -71,7 +71,7 @@ public class T06_LockSupport {
 			e1.printStackTrace();
 		}
 
-		new Thread(() -> {
+		t1 = new Thread(() -> {
 			System.out.println("t1Æô¶¯");
 			for (int i = 0; i < 10; i++) {
 				c.add(new Object());
@@ -79,6 +79,7 @@ public class T06_LockSupport {
 
 				if (c.size() == 5) {
 					LockSupport.unpark(t2);
+					LockSupport.park();
 				}
 
 				/*try {
@@ -88,7 +89,8 @@ public class T06_LockSupport {
 				}*/
 			}
 
-		}, "t1").start();
+		}, "t1");
+		t1.start();
 
 	}
 }
